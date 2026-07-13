@@ -1,0 +1,75 @@
+<svg width="57" height="56" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="figma-out-0003">
+<g id="Linked master / maticon-office-app-icon--color" clip-path="url(#clip0_42_33825)">
+<g id="Maticon/App Icon/Full Linked Master">
+<g id="Logo theme / linked Color">
+<g id="Native geometry master / linked instance">
+<g id="tile/document - 896px">
+<path id="document tile / folded silhouette" d="M11.0586 6.70312H21.3398L27.7656 13.1289V23.4102C27.7656 25.5395 26.0395 27.2656 23.9102 27.2656H11.0586C8.92927 27.2656 7.20312 25.5395 7.20312 23.4102V10.5586C7.20312 8.42927 8.92927 6.70312 11.0586 6.70312Z" fill="url(#paint0_linear_42_33825)"/>
+<path id="document folded corner / vector" d="M21.3398 6.70312L27.7656 13.1289H23.7266C22.3037 13.1289 21.3398 12.165 21.3398 10.7422V6.70312Z" fill="url(#paint1_linear_42_33825)"/>
+<g id="glyph/document / centered 480px">
+<rect id="document line 1 / centered" x="12.8945" y="13.7256" width="9.17969" height="1.28516" rx="0.642578" fill="#FFFEFC"/>
+<rect id="document line 2 / centered" x="13.8125" y="16.3418" width="7.34375" height="1.28516" rx="0.642578" fill="#FFFEFC"/>
+<rect id="document line 3 / centered" x="14.7305" y="18.958" width="5.50781" height="1.28516" rx="0.642578" fill="#FFFEFC"/>
+</g>
+</g>
+<g id="tile/analytics - 896px">
+<rect id="analytics tile / gradient body" x="29.2344" y="6.70312" width="20.5625" height="20.5625" rx="3.85547" fill="url(#paint2_linear_42_33825)"/>
+<g id="glyph/analytics / centered 480px">
+<rect id="bar 1 / common baseline" x="34.2832" y="17.2598" width="2.57031" height="4.95703" rx="0.826172" fill="#FFFEFC"/>
+<rect id="bar 2 / common baseline" x="38.2305" y="14.5059" width="2.57031" height="7.71094" rx="0.826172" fill="#FFFEFC"/>
+<rect id="bar 3 / common baseline" x="42.1777" y="11.752" width="2.57031" height="10.4648" rx="0.826172" fill="#FFFEFC"/>
+</g>
+</g>
+<g id="tile/grid - 896px">
+<rect id="grid tile / gradient body" x="7.20312" y="28.7344" width="20.5625" height="20.5625" rx="3.85547" fill="url(#paint3_linear_42_33825)"/>
+<g id="glyph/grid / centered 480px">
+<rect id="grid cell top left" x="12.4805" y="34.0127" width="4.13086" height="4.13086" rx="0.917969" fill="#FFFEFC"/>
+<rect id="grid cell top right" x="18.3555" y="34.0127" width="4.13086" height="4.13086" rx="0.917969" fill="#FFFEFC"/>
+<rect id="grid cell bottom left" x="12.4805" y="39.8877" width="4.13086" height="4.13086" rx="0.917969" fill="#FFFEFC"/>
+<rect id="grid cell bottom right" x="18.3555" y="39.8877" width="4.13086" height="4.13086" rx="0.917969" fill="#FFFEFC"/>
+</g>
+</g>
+<g id="tile/pie - 896px">
+<rect id="pie tile / gradient body" x="29.2344" y="28.7344" width="20.5625" height="20.5625" rx="3.85547" fill="url(#paint4_linear_42_33825)"/>
+<g id="glyph/pie / centered 480px">
+<path id="pie body / exact radius and rounded inner corner" d="M39.2637 34.4028C36.5767 34.4028 34.3984 36.5811 34.3984 39.2681C34.3984 41.9551 36.5767 44.1333 39.2637 44.1333C41.9507 44.1333 44.1289 41.9551 44.1289 39.2681H39.9062C39.5514 39.2681 39.2637 38.9804 39.2637 38.6255V34.4028Z" fill="#FFFEFC"/>
+<path id="pie slice / congruent exploded quarter" d="M40.2734 33.3931C42.9604 33.3931 45.1387 35.5713 45.1387 38.2583H40.916C40.5611 38.2583 40.2734 37.9706 40.2734 37.6157V33.3931Z" fill="#FFFEFC"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_42_33825" x1="9.12729" y1="11.0733" x2="25.8415" y2="22.8955" gradientUnits="userSpaceOnUse">
+<stop stop-color="#22D5E9"/>
+<stop offset="0.48" stop-color="#168EF0"/>
+<stop offset="1" stop-color="#0B4FE3"/>
+</linearGradient>
+<linearGradient id="paint1_linear_42_33825" x1="21.2344" y1="9.26263" x2="27.2794" y2="11.4491" gradientUnits="userSpaceOnUse">
+<stop stop-color="#C7FBFF"/>
+<stop offset="0.58" stop-color="#72E4F2"/>
+<stop offset="1" stop-color="#198FE8"/>
+</linearGradient>
+<linearGradient id="paint2_linear_42_33825" x1="31.1585" y1="11.0733" x2="47.8727" y2="22.8955" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFD84A"/>
+<stop offset="0.5" stop-color="#FF9E17"/>
+<stop offset="1" stop-color="#FF4A2D"/>
+</linearGradient>
+<linearGradient id="paint3_linear_42_33825" x1="9.12729" y1="33.1045" x2="25.8415" y2="44.9267" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A5EE27"/>
+<stop offset="0.5" stop-color="#38D369"/>
+<stop offset="1" stop-color="#06A98D"/>
+</linearGradient>
+<linearGradient id="paint4_linear_42_33825" x1="31.1585" y1="33.1045" x2="47.8727" y2="44.9267" gradientUnits="userSpaceOnUse">
+<stop stop-color="#C33FF0"/>
+<stop offset="0.48" stop-color="#6E50F4"/>
+<stop offset="1" stop-color="#1458EA"/>
+</linearGradient>
+<clipPath id="clip0_42_33825">
+<rect width="47" height="47" fill="white" transform="translate(5 4.5)"/>
+</clipPath>
+</defs>
+</svg>
