@@ -16,15 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: ${{ env.PNPM_VERSION }}
 
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "pnpm"
@@ -42,7 +42,7 @@ jobs:
         run: pnpm test
 
       - name: Checkout DocSpace client assets
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: MaticonOffice/DocSpace-client
           ref: 75df9afec4af2a43f27a48bf01625e38def2df9c
