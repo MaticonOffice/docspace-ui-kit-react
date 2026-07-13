@@ -266,8 +266,8 @@ export const ViewMode: Story = {
 export const WithCustomEvent: Story = {
   render: (args: StoryArgs) => {
     const onDocumentReady = () => {
-      const documentEditor = window.DocEditor.instances[args.id];
-      documentEditor.showMessage("Welcome to Maticon Office Editor!");
+      const documentEditor = window.DocEditor?.instances[args.id];
+      documentEditor?.showMessage("Welcome to Maticon Office Editor!");
     };
 
     return (

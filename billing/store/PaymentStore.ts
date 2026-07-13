@@ -739,12 +739,9 @@ class PaymentStore {
       );
     try {
       const res = await this.paymentApi.getCheckoutSetupUrl(
-        { backUrl },
+        { backUrl, successUrl: resolvedSuccessUrl },
         {
           signal: abortController.signal,
-          // TEMP: SDK schema lacks `successUrl`; passing it via axios `params`
-          // until the SDK is regenerated to include it in the request type.
-          params: { successUrl: resolvedSuccessUrl },
         },
       );
 
@@ -1329,4 +1326,3 @@ class PaymentStore {
 }
 
 export default PaymentStore;
-

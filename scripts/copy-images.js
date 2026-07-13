@@ -1,12 +1,14 @@
-if (process.env.CI) {
-  console.log("Skipping copy-images in CI");
+if (process.argv.includes("--stub")) {
+  console.log("Skipping image copy in stub mode");
   process.exit(0);
 }
 
 const fs = require("node:fs");
 const path = require("node:path");
+const { resolveDocSpaceClientRoot } = require("./resolve-docspace-client-root");
 
-const SOURCE = path.resolve(__dirname, "../../../public/images/icons");
+const CLIENT_ROOT = resolveDocSpaceClientRoot();
+const SOURCE = path.join(CLIENT_ROOT, "public/images/icons");
 const DEST = path.resolve(__dirname, "../assets/icons");
 const SIZES = [24, 32, 64, 96];
 const SUBFOLDERS = ["room", "template"];
@@ -38,7 +40,10 @@ function copyFile(src, dest) {
 for (const size of SIZES) {
   // Copy base icons
   for (const name of baseIcons) {
-    copyFile(path.join(SOURCE, `${size}`, name), path.join(DEST, `${size}`, name));
+    copyFile(
+      path.join(SOURCE, `${size}`, name),
+      path.join(DEST, `${size}`, name),
+    );
   }
 
   // Copy room/ and template/ subfolders if they exist in this size
@@ -46,15 +51,14 @@ for (const size of SIZES) {
     const subSrc = path.join(SOURCE, `${size}`, sub);
     if (!fs.existsSync(subSrc)) continue;
 
-    for (const name of fs.readdirSync(subSrc).filter((f) => f.endsWith(".svg"))) {
-      copyFile(
-        path.join(subSrc, name),
-        path.join(DEST, `${size}`, sub, name),
-      );
+    for (const name of fs
+      .readdirSync(subSrc)
+      .filter((f) => f.endsWith(".svg"))) {
+      copyFile(path.join(subSrc, name), path.join(DEST, `${size}`, sub, name));
     }
   }
 }
 
 console.log(
-  `Copied ${copied} icons into assets/images/icons/${missing > 0 ? ` (${missing} missing in some sizes)` : ""}`,
+  `Copied ${copied} icons into assets/icons/${missing > 0 ? ` (${missing} missing in some sizes)` : ""}`,
 );

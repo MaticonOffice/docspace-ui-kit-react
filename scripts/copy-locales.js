@@ -1,19 +1,23 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { resolveDocSpaceClientRoot } = require("./resolve-docspace-client-root");
 
-if (process.env.CI) {
-  const dest = path.resolve(__dirname, "../locales/en");
+const DEST = path.resolve(__dirname, "../locales");
+fs.rmSync(DEST, { recursive: true, force: true });
+
+if (process.argv.includes("--stub")) {
+  const dest = path.join(DEST, "en");
   fs.mkdirSync(dest, { recursive: true });
   fs.writeFileSync(path.join(dest, "Common.json"), "{}\n");
   fs.writeFileSync(path.join(dest, "Payments.json"), "{}\n");
   fs.writeFileSync(path.join(dest, "Services.json"), "{}\n");
   fs.writeFileSync(path.join(dest, "Settings.json"), "{}\n");
-  console.log("CI detected - created stub locale files");
+  console.log("Created stub locale files for checks");
   process.exit(0);
 }
 
-const SOURCE = path.resolve(__dirname, "../../../public/locales");
-const DEST = path.resolve(__dirname, "../locales");
+const CLIENT_ROOT = resolveDocSpaceClientRoot();
+const SOURCE = path.join(CLIENT_ROOT, "public/locales");
 const UI_KIT_ROOT = path.resolve(__dirname, "..");
 
 // Scan ui-kit source files to collect translation keys actually in use
@@ -33,9 +37,13 @@ function collectUsedKeys() {
   function scan(dir) {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (
+        entry.name === ".git" ||
+        entry.name === ".sources" ||
+        entry.name === "coverage" ||
         entry.name === "node_modules" ||
         entry.name === "locales" ||
-        entry.name === "dist"
+        entry.name === "dist" ||
+        entry.name === "storybook-static"
       )
         continue;
 
@@ -113,8 +121,8 @@ console.log(
 
 // --- Copy Payments.json, Services.json, Settings.json (full files, no key filtering) ---
 const CLIENT_LOCALES = path.resolve(
-  __dirname,
-  "../../../packages/client/public/locales",
+  CLIENT_ROOT,
+  "packages/client/public/locales",
 );
 const EXTRA_NS = ["Payments", "Services", "Settings"];
 for (const ns of EXTRA_NS) {
@@ -128,13 +136,25 @@ for (const ns of EXTRA_NS) {
     fs.copyFileSync(src, path.join(destDir, `${ns}.json`));
     copiedCount++;
   }
+  if (copiedCount === 0) {
+    for (const lang of langs) {
+      const destDir = path.join(DEST, lang);
+      fs.mkdirSync(destDir, { recursive: true });
+      fs.writeFileSync(path.join(destDir, `${ns}.json`), "{}\n");
+    }
+    console.log(`Generated empty ${ns}.json for ${langs.length} locales`);
+    continue;
+  }
   console.log(`Copied ${ns}.json for ${copiedCount} locales into locales/`);
 }
 // --- Copy fonts ---
-const FONTS_CSS_SRC = path.resolve(__dirname, "../../../public/css/fonts.css");
+const FONTS_CSS_SRC = path.join(CLIENT_ROOT, "public/css/fonts.css");
 const FONTS_CSS_DEST = path.resolve(__dirname, "../css");
-const FONTS_DIR_SRC = path.resolve(__dirname, "../../../public/fonts");
+const FONTS_DIR_SRC = path.join(CLIENT_ROOT, "public/fonts");
 const FONTS_DIR_DEST = path.resolve(__dirname, "../fonts");
+
+fs.rmSync(FONTS_CSS_DEST, { recursive: true, force: true });
+fs.rmSync(FONTS_DIR_DEST, { recursive: true, force: true });
 
 function copyDirSync(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
@@ -163,4 +183,3 @@ if (fs.existsSync(FONTS_DIR_SRC)) {
 } else {
   console.error(`fonts directory not found: ${FONTS_DIR_SRC}`);
 }
-
